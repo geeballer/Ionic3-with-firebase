@@ -7,7 +7,7 @@ import { UsersServiceProvider } from '../../providers/users-service/users-servic
  * Generated class for the LoginPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
+ * on Ionic pages and navigation.-
  */
 @IonicPage()
 @Component({
@@ -19,12 +19,12 @@ export class LoginPage {
 
 public emailField: any;
 public passwordField: any;
-private users = [];
+// private users = [];
 private usersList : any;
  
       constructor(public alertCtrl: AlertController, public loadingCtrl: LoadingController, public navCtrl: NavController, private modalCtrl: ModalController , navParams: NavParams, private usersService: UsersServiceProvider, public toastCtrl: ToastController) {
 
-                    this.emailField = "geeballer@gmail.com";
+                    this.emailField = "you@you.com";
                     
                      this.listOurUsers();
     }
@@ -49,12 +49,6 @@ private usersList : any;
     });
     toast.present();                    
       }) 
-
-      // let loader = this.loadingController.create({
-      //     dismissOnPageChange: true,
-      // }); 
-
-      // loader.present();
     }
 
     listOurUsers(){
@@ -87,7 +81,6 @@ private usersList : any;
     toast.present();  
       })
     }
-
 
     submitRegister(){
       
@@ -148,16 +141,14 @@ private usersList : any;
       });
       alert.present();
        });
-      }
+       }
     }
-  ]
-});
-
-prompt.present();
+  ] 
+ });
+  prompt.present();
 }
 
-googleSignInUser(){
-  
+  googleSignInUser(){
   this.usersService.googleSignInUser().then(() => {
     //success, redirect
     let toast = this.toastCtrl.create({
@@ -168,8 +159,7 @@ googleSignInUser(){
   });
 }
 
-      ionViewDidLoad(){
-
-        console.log('ionViewDidLoad LoginPage');
-}
+  ionViewDidLoad(){
+    console.log('ionViewDidLoad LoginPage');
+  }
 }

@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { UsersDetailPage } from '../pages/users-detail/users-detail';
+import { PostAddPage } from '../pages/post-add/post-add';
 import { HttpModule } from '@angular/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -17,6 +18,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { UsersServiceProvider } from '../providers/users-service/users-service';
 
 import * as firebase from 'firebase';
+import { PostsServiceProvider } from '../providers/posts-service/posts-service';
 
  //IMPORTING FIREBASE LOGIN CREDENTIALS
 
@@ -40,7 +42,8 @@ import * as firebase from 'firebase';
     TabsPage,
     LoginPage,
     RegisterPage,
-    UsersDetailPage
+    UsersDetailPage,
+    PostAddPage
   ],
   imports: [
     BrowserModule,
@@ -56,13 +59,15 @@ import * as firebase from 'firebase';
     TabsPage,
     LoginPage,
     RegisterPage,
-    UsersDetailPage
+    UsersDetailPage,
+    PostAddPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UsersServiceProvider
+    UsersServiceProvider,
+    PostsServiceProvider
   ]
 })
 export class AppModule {}

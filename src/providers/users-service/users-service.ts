@@ -21,7 +21,7 @@ public userProfile: any;
   constructor(private http: Http) {
       this.fireAuth = firebase.auth();
       this.userProfile = firebase.database().ref('users');
-
+  
     //console.log('Hello UsersServiceProvider Provider');
   }
 
@@ -43,11 +43,19 @@ public userProfile: any;
 
   }
 
+  viewUser (userId: any) {
+    var userRef = this.userProfile.child(userId);
+
+      return userRef.once('value');
+
+  }
+
   signUpUser(email: string, password: string){
     return this.fireAuth.createUserWithEmailAndPassword(email, password).
     then((newUser) => {
         //SIGN IN THE USER
       this.fireAuth.signInWithEmailAndPassword(email, password).then((authenticatedUser) => {
+        
         //SUCCESSFUL LOGIN, CREATE USER PROFILE
         this.userProfile.child(authenticatedUser.uid).set({
             email: email
@@ -73,9 +81,7 @@ forgotPasswordUser(email: any){
   return this.fireAuth.sendPasswordResetEmail(email);
   }
 
-
-googleSignInUser(){
-  
+googleSignInUser(){  
   var provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('https://www.googleapis.com/auth/plus.login');
 
@@ -84,13 +90,13 @@ googleSignInUser(){
   return firebase.auth().signInWithPopup(provider).then(function(result) {
 
     if (result.user) {
-      console.log(result);
+      console.log(result); 
 
       //The signed-in user info
       var user = result.user;
 
-        var res = result.user.displayName.split(" ");
-
+      var res = result.user.displayName.split(" ");
+    
         that.userProfile.child(user.uid).set({
           email: user.email,
           photo: user.photoURL,
@@ -99,17 +105,14 @@ googleSignInUser(){
             first: res[0] || '',
             middle: res[1] || '',
             last: res[2] || '',
-          }
+          },
         });
     }
   })
 }
 
   logOut(){
-  
       firebase.database().ref('/userProfile').child(firebase.auth().currentUser.uid).off();
             return firebase.auth().signOut();
-    
-
   }
 }

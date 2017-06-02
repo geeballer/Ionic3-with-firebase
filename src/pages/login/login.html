@@ -19,12 +19,12 @@
  
     <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input type = "text" [(ngModel)]="emailField"></ion-input>
+      <ion-input type = "text" [(ngModel)]="emailField" role ="required"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Password</ ion-label>
-      <ion-input type = "password" [(ngModel)]="passwordField"></ion-input>
+      <ion-input type = "password" [(ngModel)]="passwordField" role="required"></ion-input>
     </ion-item> 
 
   </ion-list>
@@ -35,7 +35,7 @@
   </ion-buttons>
 
    <div class="fgbutton">
-     <button full  ion-button color= "danger"  (click) ="googleSignInUser()"><ion-icon name ="logo-googleplus"></ion-icon>Sign In With Google</button>
+     <button full round ion-button color= "danger"  (click) ="googleSignInUser()"><ion-icon name ="logo-googleplus"></ion-icon>Sign In With Google</button>
      <button clear full ion-button color= "primary"  (click) ="showForgotPassword()">Forgot Password</button>
    </div>
 <!--

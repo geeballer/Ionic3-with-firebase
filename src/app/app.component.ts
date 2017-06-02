@@ -8,7 +8,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 //IMPORTING PAGES CREATED (login, :
 import { LoginPage } from '../pages/login/login';
-import { RegisterPage } from '../pages/register/register';
 
 //IMPORTING FIREBASE
 import * as firebase from 'firebase';

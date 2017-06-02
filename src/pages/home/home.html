@@ -1,15 +1,28 @@
 <ion-header>
+  
   <ion-navbar>
     <ion-title>Home</ion-title>
-      <ion-buttons start (click) = "redirectToUserDetailPage()" >
+
+   <!--<ion-buttons start (click) = "redirectToUserDetailPage()">
         <button><ion-icon name="person"></ion-icon></button>
-        <!--<button ion-button icon-only color="danger" (click)=logOut()>-->
-          <!--<ion-icon name ="log-out"></ion-icon>-->
+        <button ion-button icon-only color="danger" (click)=logOut()>
+          <ion-icon name ="log-out"></ion-icon>
+      </ion-buttons>-->
+
+      <ion-buttons end>
+        <button (click) ="redirectToPostAddPage()" >
+        <ion-icon name = "add-circle"></ion-icon>
+        </button>
+
+        <button (click) = "redirectToUserDetailPage()">
+          <ion-icon name = "person"></ion-icon>
+        </button>
       </ion-buttons>
+
   </ion-navbar>  
 </ion-header>
 
-<ion-content padding>
+<!--<ion-content padding>
   <h2>Welcome to Ionic!</h2>
   <p>
     This starter project comes with simple tabs-based layout for apps
@@ -18,6 +31,46 @@
   <p>
     Take a look at the <code>src/pages/</code> directory to add or change tabs,
     update any existing page or create new pages.
-  </p>
+  </p>-->
   
+<ion-content padding>
+
+<ion-card *ngFor="let post of userPostLists">
+
+  <ion-item>
+    <ion-avatar>
+      <img src=" {{userPhoto}} " alt="">
+    </ion-avatar>
+    <h2> {{userDisplayName}} </h2>
+    <p>2pm today</p>
+  </ion-item>
+
+
+  <ion-card-content>
+    <p>{{post.body}}</p>
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col>
+      <button primary clear small>
+        <ion-icon name = "thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button primary clear small>
+        <ion-icon name = "text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center>
+      <ion-note>
+        11hr ago
+      </ion-note>
+    </ion-col>
+  </ion-row>
+
+
+</ion-card>
+
 </ion-content>

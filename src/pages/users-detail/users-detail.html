@@ -6,10 +6,10 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>users-detail</ion-title>
     <ion-buttons start (click) = "logUserOut()" >
-        <button><ion-icon name="person"></ion-icon>Logout</button>
+        <button ><ion-icon name="person"></ion-icon>Logout</button>
         <!--<button ion-button icon-only color="danger" (click)=logOut()>-->
           <!--<ion-icon name ="log-out"></ion-icon>-->
       </ion-buttons>
@@ -19,5 +19,41 @@
 
 
 <ion-content padding>
+
+<ion-card>
+  <img src= "{{ userPhotoUrl }}" alt="" style="margin-top: 30px; margin: auto; border-radius: 500px; height:200; width:200px;" />
+
+  <ion-card-content text-center>
+    <ion-card-title>
+        {{userDisplayName}}
+    </ion-card-title>
+    <p>This is my profile details. </p>
+  </ion-card-content>
+</ion-card>
+
+
+
+<ion-card>
+  <ion-card-header>
+      My details
+  </ion-card-header>
+  
+  <ion-list>
+    <button ion-item>
+        <ion-icon name ="list"></ion-icon>24 years
+    </button>
+
+    <button ion-item>
+         <ion-icon name ="logo-buffer"></ion-icon>7.6 feet
+    </button>
+
+    <button ion-item>
+         <ion-icon name ="globe"></ion-icon> Nigeria
+    </button>
+  </ion-list>
+</ion-card>
+
+<button ion-button color = "primary" round>follow me </button>
+<button ion-button color = "danger" fab><ion-icon name = "mic"> </ion-icon></button>
 
 </ion-content>
